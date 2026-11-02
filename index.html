@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LANCER NPC Sheet</title>
+    <link rel="stylesheet" href="lancer-npc-sheet.css">
+    <script>
+        const npc_name = {
+            callsign: "Raijin",
+            npc_class: "Raleigh",
+            template: "IPS-N",
+            tier: 1,
+            role: "Striker"
+        }
+
+        const npc = {
+            activations: 1,
+            size: 1,
+            save_target: 12,
+
+            structure: 4,
+            stress: 4,
+
+            hull: "+5",
+            hp: 28,
+            armor: 1,
+
+            agility: "+0",
+            evasion: 8,
+            speed: 4,
+
+            systems: "+0",
+            e_defense: 8,
+            sensors: 10,
+
+            engineering: "+0",
+            heatcap: 5
+        }
+    </script>
+</head>
+<body>
+    <div id="statblock">
+        <div class="statblock_row">
+            <div id="base_stat">
+                <h1 class="entry" id="callsign"></h1>
+                <h2 class="entry" id="template_class"></h2>
+                <div class="entry" id="tier_role"><em>Tier</em></div>
+            </div>
+        </div>
+        <div class="statblock_row">
+            <div class="stat_left" id="agility_stat">
+                <h2 class="entry" id="agility">AGILITY</h2>
+                <div class="entry" id="evasion"><strong>Evasion</strong></div>
+                <div class="entry" id="speed"><strong>Speed</strong></div>
+            </div>
+            <div class="stat_overflow">
+                <div class="entry" id="activations"><strong>Activations</strong><br>[ ] [ ] [ ] /</div>
+                <div class="statblock_row">
+                    <div class="entry base" id="size"><strong>Size</strong></div>
+                    <div class="entry base" id="save_target"><strong>Save Target</strong></div>
+                </div>
+            </div>
+            <div class="stat_right" id="systems_stat">
+                <h2 class="entry" id="systems">SYSTEMS</h2>
+                <div class="entry" id="e_defense"><strong>E-Defense</strong></div>
+                <div class="entry" id="sensors"><strong>Sensors</strong></div>
+            </div>
+        </div>
+        <div class="statblock_row">
+            <div class="stat_left" id="hull_stat">
+                <h2 class="entry" id="hull">HULL</h2>
+                <div class="entry" id="hp"><strong>HP</strong> ___ /</div>
+                <div class="entry" id="structure"><strong>Structure</strong> ___ /</div>
+            </div>
+            <div class="stat_overflow" id="damage">
+                <div class="entry" id="armor"><strong>Armor</strong></div>
+                <div class="entry" id="overshield"><strong>Overshield</strong> ___</div>
+                <div class="entry" id="burn"><strong>Burn</strong> ___</div>
+            </div>
+            <div class="stat_right" id="engineering_stat">
+                <h2 class="entry" id="engineering">ENGINEERING</h2>
+                <div class="entry" id="heatcap"><strong>Heat Cap</strong> ___ /</div>
+                <div class="entry" id="stress"><strong>Stress</strong> ___ /</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function fillStatBlock(entry, entry_id) {
+            document.getElementById(entry_id).innerHTML += `&nbsp;${entry}`;
+        }
+
+        fillStatBlock(`${npc_name["callsign"].toUpperCase()}&nbsp;`, "callsign");
+        fillStatBlock(`${npc_name["template"]}&nbsp;${npc_name["npc_class"]}&nbsp;`, "template_class");
+        fillStatBlock(`<em>${npc_name["tier"]}&nbsp;${npc_name["role"]}</em>`, "tier_role");
+
+        for (entry in npc) {
+            fillStatBlock(npc[entry], entry);
+        }
+    </script>
+</body>
+</html>

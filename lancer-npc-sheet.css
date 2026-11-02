@@ -1,0 +1,60 @@
+div {
+    font-family: monospace;
+    font-size: 1.25rem;
+    padding: .25rem 0;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+.entry {
+    text-align: center;
+}
+
+#statblock {
+    display: flex;
+    flex-direction: column;
+}
+
+.statblock_row {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.statblock_row div {
+    flex-basis: 50%;
+}
+
+#base_stat, .stat_overflow {
+    transform: translate(0, 1rem);
+}
+
+.stat_left {
+    transform: translate(-3.3rem, 0);
+}
+
+.stat_right {
+    transform: translate(3.3rem, 0);
+}
+
+.stat_overflow, .base {
+    position: absolute;
+}
+
+#activations {
+    margin-bottom: .5rem;
+}
+
+#size {
+    transform: translate(-5rem, 0);
+}
+
+#save_target {
+    transform: translate(5rem, 0);
+}
+
+#damage {
+    transform: translate(0, .33rem);
+}
