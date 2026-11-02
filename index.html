@@ -10,11 +10,11 @@
             npc_class: "Raleigh",
             template: "IPS-N",
             tier: 1,
-            role: "Striker"
+            role: "Striker",
+            activations: 1
         }
 
         const npc = {
-            activations: 1,
             size: 1,
             save_target: 12,
 
@@ -54,10 +54,10 @@
                 <div class="entry" id="speed"><strong>Speed</strong></div>
             </div>
             <div class="stat_overflow">
-                <div class="entry" id="activations"><strong>Activations</strong><br>[ ] [ ] [ ] /</div>
+                <div class="entry" id="activations"><strong>Activations</strong><br></div>
                 <div class="statblock_row">
                     <div class="entry base" id="size"><strong>Size</strong></div>
-                    <div class="entry base" id="save_target"><strong>Save Target</strong></div>
+                    <div class="entry base" id="save_target"><strong>Save&nbsp;Target</strong></div>
                 </div>
             </div>
             <div class="stat_right" id="systems_stat">
@@ -79,7 +79,7 @@
             </div>
             <div class="stat_right" id="engineering_stat">
                 <h2 class="entry" id="engineering">ENGINEERING</h2>
-                <div class="entry" id="heatcap"><strong>Heat Cap</strong> ___ /</div>
+                <div class="entry" id="heatcap"><strong>Heat&nbsp;Cap</strong> ___ /</div>
                 <div class="entry" id="stress"><strong>Stress</strong> ___ /</div>
             </div>
         </div>
@@ -92,6 +92,9 @@
         fillStatBlock(`${npc_name["callsign"].toUpperCase()}&nbsp;`, "callsign");
         fillStatBlock(`${npc_name["template"]}&nbsp;${npc_name["npc_class"]}&nbsp;`, "template_class");
         fillStatBlock(`<em>${npc_name["tier"]}&nbsp;${npc_name["role"]}</em>`, "tier_role");
+
+        for (let i = 0; i < npc_name["activations"]; i++) { fillStatBlock("[ ]", "activations") }
+        fillStatBlock(`/ ${npc_name["activations"]}&nbsp;`, "activations");
 
         for (entry in npc) {
             fillStatBlock(npc[entry], entry);
